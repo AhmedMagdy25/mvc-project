@@ -1,8 +1,9 @@
 const mongoose = require("mongoose");
+const MONGODB_URL = require("../secrets/.env").MONGODB_URL
 
 module.exports = cb=>{
         return new Promise(async (resolve, reject)=>{
-                await mongoose.connect(process.env.MONGODB_URI)
+                await mongoose.connect(MONGODB_URL)
                 .then(()=>{
                         return cb()
                         .then((resalt)=>{
