@@ -1,9 +1,8 @@
 const mongoose = require("mongoose");
-const DB_URL = process.env.DB_URL;
 
 module.exports = cb=>{
         return new Promise(async (resolve, reject)=>{
-                await mongoose.connect(DB_URL)
+                await mongoose.connect(process.env.DB_URL)
                 .then(()=>{
                         return cb()
                         .then((resalt)=>{
